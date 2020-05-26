@@ -50,7 +50,7 @@ const Question = ({ item, userAnswer, isDisable, counter, checkAnswer }) => {
                                 className={cx(
                                     classes.answerItem,
                                     {
-                                        'correct': userAnswer === item.correctIndex && userAnswer === index,
+                                        'correct': (userAnswer === item.correctIndex && userAnswer === index) || (userAnswer !== null && index === item.correctIndex),
                                         'incorrect': userAnswer === index && userAnswer !== item.correctIndex,
                                     }
                                 )}

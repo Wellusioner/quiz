@@ -6,11 +6,12 @@ import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import { questions } from '../../questions'
+import { list } from '../../questions';
 import { formatTime } from "../../helpers";
 
 const Home = () => {
 
+    const [questions, setQuestions] = useState([]);
     const [counter, setCounter] = useState(1);
     const [isDisable, setDisable] = useState(false);
     const [state, setState] = useState({
@@ -34,8 +35,14 @@ const Home = () => {
     },[start]);
 
     useEffect(() => {
+        setQuestions(list.sort(() => 0.5 - Math.random()).slice(0,5));
+    },[start]);
+
+    useEffect(() => {
         setSelected(() => questions[counter-1]);
-    }, [counter, selected]);
+    }, [counter, selected, questions]);
+
+    console.log('rendering');
 
 
     const checkAnswer = index => {

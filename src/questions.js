@@ -1,4 +1,4 @@
-export const questions = [
+export const list = [
         {
             "question": "What is the scientific name of a butterfly?",
             "answers": [
