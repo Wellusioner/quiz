@@ -35,15 +35,13 @@ const Home = () => {
     },[start]);
 
     useEffect(() => {
-        setQuestions(list.sort(() => 0.5 - Math.random()).slice(0,5));
+        const amount = list.length > 5 ? 5 : list.length;
+        setQuestions(list.sort(() => 0.5 - Math.random()).slice(0,amount));
     },[start]);
 
     useEffect(() => {
         setSelected(() => questions[counter-1]);
     }, [counter, selected, questions]);
-
-    console.log('rendering');
-
 
     const checkAnswer = index => {
         const current = questions[counter-1];
